@@ -17,6 +17,8 @@ class NumApp:
         return user_num_input < lowest or highest < user_num_input
         
     def num_check(self, lowest, highest, user_num_input, target):
+        if self.not_valid(self.lowest, self.highest, user_num_input):
+            sys.exit('Please input the number in the range')
         if user_num_input < highest and target < user_num_input:
             print('Your guess is above the answer')
         elif lowest < user_num_input and user_num_input < target:
@@ -33,8 +35,8 @@ class NumApp:
                 user_num_input = int(input('please enter your number: ')) 
             except ValueError:
                 print("Not an integer! Try again.")
-            if self.not_valid(self.lowest, self.highest, user_num_input):
-                sys.exit('Please input the number in the range')
+            # if self.not_valid(self.lowest, self.highest, user_num_input):
+            #     sys.exit('Please input the number in the range')
             self.num_check(self.lowest, self.highest, user_num_input, target)
             n += 1
 
@@ -42,5 +44,5 @@ class NumApp:
             
 
 if __name__ == '__main__':
-    num_guess = NumApp(lowest=0, highest=50, attempts=5)
+    num_guess = NumApp(lowest=0, highest=50, attempts=10)
     num_guess.run()
