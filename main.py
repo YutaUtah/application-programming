@@ -35,12 +35,10 @@ class NumApp:
                 user_num_input = int(input('please enter your number: ')) 
             except ValueError:
                 print("Not an integer! Try again.")
-            # if self.not_valid(self.lowest, self.highest, user_num_input):
-            #     sys.exit('Please input the number in the range')
             self.num_check(self.lowest, self.highest, user_num_input, target)
             n += 1
 
-        print('Over the maxium attemps. Game Over')
+        print('Over the maxium attempts. Game Over')
             
 
 if __name__ == '__main__':
